@@ -1,5 +1,6 @@
 mkdir ${HOME}/dicm2nii && curl -SL https://prisma.ur.de/share/download.php?id=52&token=576469627e2d8e0518ddfbe41609cfb1 | tar -xzC ${HOME}/dicm2nii --strip-components 1
 mkdir ${HOME}/spm12 && curl -SL https://github.com/spm/spm12/archive/r7771.tar.gz | tar -xzC ${HOME}/spm12 --strip-components 1
+mkdir ${HOME}/sub-01 && curl -SL https://prisma.ur.de/share/download.php?id=53&token=9cc6d58051b86fdfeef6468dac91df0f | tar -xzC ${HOME}/dicm2nii --strip-components 1
 curl -SL https://raw.githubusercontent.com/spm/spm-docker/master/octave/spm12_r7771.patch | patch -d ${HOME}/spm12 -p3
 
 cd ${HOME}/spm12/src
@@ -13,6 +14,4 @@ find . -name "file2mat*.*" -print0 | xargs -0 -I{} find '{}' \! -name "*.mex" -d
 cd ${HOME}
 octave --no-gui --eval "addpath (fullfile (getenv (\"HOME\"), \"dicm2nii\")); savepath ();"
 octave --no-gui --eval "addpath (fullfile (getenv (\"HOME\"), \"spm12\")); savepath ();"
-
-aws s3 sync --no-sign-request https://prisma.ur.de/share/download.php?id=53&token=9cc6d58051b86fdfeef6468dac91df0f
 
