@@ -1,4 +1,4 @@
-mkdir ${HOME}/dicm2nii && curl -SL https://drive.google.com/uc?export=download&id=14vkr9JrfDiq2guwS4ABTMcb9jeYV8ygq | tar -xzC ${HOME}/dicm2nii --strip-components 1
+mkdir ${HOME}/dicm2nii && curl -SL https://github.com/WMallon/dcm2nii/blob/1fff6c127db03349bab2bec63e359e937ca4fdea/dicm2nii-0.2.tar.gz | tar -xzC ${HOME}/dicm2nii --strip-components 1
 mkdir ${HOME}/spm12 && curl -SL https://github.com/spm/spm12/archive/r7771.tar.gz | tar -xzC ${HOME}/spm12 --strip-components 1
 mkdir ${HOME}/sub-01 && curl -SL https://drive.google.com/uc?export=download&id=1owNSjBm15j905Pc_aSB2TPJMKQW2LsdC | tar -xzC ${HOME}/sub-01 --strip-components 1
 curl -SL https://raw.githubusercontent.com/spm/spm-docker/master/octave/spm12_r7771.patch | patch -d ${HOME}/spm12 -p3
